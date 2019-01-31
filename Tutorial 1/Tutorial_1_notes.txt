@@ -1,0 +1,206 @@
+% NOTES FOR TUTORIAL 1: ARITHMETIC, ASSIGNMENTS, ARRAYS, PLOTTING, SCRIPTS
+% Comments: use a % before text to make a note for yourself 
+%Basic Operations
+1+1
+
+ans =
+
+     2
+
+2*2
+
+ans =
+
+     4
+
+4/2
+
+ans =
+
+     2
+
+sqrt(81)%square root
+
+ans =
+
+     9
+
+log(10)%natural log
+
+ans =
+
+    2.3026
+
+log10(100)%log base 10
+
+ans =
+
+     2
+
+pi %pi is already defined 
+
+ans =
+
+    3.1416
+
+format long %use this to show more digits
+pi
+
+ans =
+
+   3.141592653589793
+
+format short %go back to fewer digits showing 
+pi
+
+ans =
+
+    3.1416
+
+%Trig operations
+sin(pi/2)
+
+ans =
+
+     1
+
+%NOTE: sin() requires radians
+%Use sind() for degree inputs
+sind(90)
+
+ans =
+
+     1
+
+acos(.12)%arccos
+
+ans =
+
+    1.4505
+
+help cos %this tells you a bit about the function
+ <strong>cos</strong>    Cosine of argument in radians.
+    <strong>cos</strong>(X) is the cosine of the elements of X. 
+ 
+    See also <a href="matlab:help acos">acos</a>, <a href="matlab:help cosd">cosd</a>.
+
+    <a href="matlab:doc cos">Reference page for cos</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('cos')">Other functions named cos</a>
+
+%ASSIGNMENTS - In math, it is often easier to work with variables instead of numbers. In MATLAB, you can assign value to a vraiable
+a=3
+
+a =
+
+     3
+
+a=3;%Use a semicolon to suppress the input in command window (it still show up in the workspace
+a=a+2;%Mathematically, this doesn't make sense. Computationally, this isn't an equality, it is an assignment. Here, you take the old "a" and replace it is a new "a" that is increased by 2
+b=3;
+c = (a+b*b)/a; %use variable assignments to represent long complicated expressions.
+
+%ARRAYS: 1-dimensional list of values (a vector)
+d = [1,2,3,4]; %this gives 4 entries in a row (4 columns)
+f = [1;2;3;4]; %this gives 4 entries in a column (4 rows)
+%Array operations
+g = 5*f;%scalar multiplication (works as you would expect)
+h = f+2; %scalar addition (add 2 to each element in array) 
+j=g*h; %Multiply 2 arrays of the same dimensions
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Inner matrix dimensions must agree.
+} 
+%The above doesn't work because it is trying to do matrix multiplication
+%To multiply 2 arrays element-wise (1st in g * 1st in h, 2nd in g * 2nd in h, ...)
+j=g.*h;
+k = d.^2;%Same for exponents
+%Array functions
+length(d)
+
+ans =
+
+     4
+
+size(d) %shows size of matrix (rows, columns)
+
+ans =
+
+     1     4
+
+%Statistics
+mean(d)
+
+ans =
+
+    2.5000
+
+std(d)%standard deviation
+
+ans =
+
+    1.2910
+
+sum(d)
+
+ans =
+
+    10
+
+range(d)
+
+ans =
+
+     3
+
+
+%Incremental array - if you want an array that increases regularly and has many elements
+x=1:10;% = [1,2,3,4,5,6,7,8,9,10]
+x = 1:2:10; %format here is = start:step:stop; So, start at 1, increase by 2 each time up until the closest point to the stop point
+x = 1:2:10
+
+x =
+
+     1     3     5     7     9
+
+
+%clear variables - can remove variables to unclutter workspace
+clear a % just clears variable a
+clear all; %clears all variables
+
+%PLOTTING
+%First, lets make an array for a sine curve
+x = 0:2:360;%domain (in degrees)
+y_sin = sind(x);
+y_cos = cosd(c);%Here is the range for a cosine curve
+{Undefined function or variable 'c'.
+} 
+y_cos = cosd(x);%Oops: x, not c!
+plot(x,y_sin,'b')%This plots sine function ('b' means a blue continuous curve) 
+hold on %use this command if you want to plot multiple curves on 1 figure!
+plot(x,y_cos,'rx')%plots cosine ('rx' = red x's)
+y_tan = tand(x);
+plot(x,y_tan,'go')%plots tangent ('go' = green circles)
+
+%SCRIPTS
+% A recipe, allows you put a sequence of commands in a single file, which you can run later.
+% This is better than using the command window, since it is harder to delete everything and easier to make changes (and not have to keep entering single commands in line-by-line)
+%Open a new script using either Ctrl+N, or the "New Script" button.
+%Enter the following into the script editor:
+a=3;
+b=5;
+c = a + b;
+disp(c);%command to display something
+     8
+
+%Save script (Ctrl+S) as MyScript in the MATLAB folder. It will be called MyScript.m
+clear all;%clear all variables
+close all; %close all plots
+MyScript%enter name of script (don't need .m)
+     8
+
+%Output of 8 appears!
+%If we change a = 3 to a=30, and run the script, we get...
+MyScript
+    35
+
+%It is now 30. This is much easier than having to enter everything in line by line!
+

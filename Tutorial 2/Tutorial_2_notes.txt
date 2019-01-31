@@ -1,0 +1,122 @@
+% NOTES FOR TUTORIAL 2: ARRAYS, INDEXING, FOR LOOP
+a=[1,2,3,4]; 
+b=[1,2,3,4];
+%Multiplying arrays
+a*b
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Incorrect dimensions for matrix multiplication. Check that the number of
+columns in the first matrix matches the number of rows in the second
+matrix. To perform elementwise multiplication, use '.*'.
+} 
+%Need to do .* for element-wise multiplication
+a.*b
+
+ans =
+
+     1     4     9    16
+
+a.^b
+
+ans =
+
+     1     4    27   256
+
+1:10
+
+ans =
+
+     1     2     3     4     5     6     7     8     9    10
+
+1:2:10
+
+ans =
+
+     1     3     5     7     9
+
+%indexing
+a=1:10;
+a=1:7;
+a(1)
+
+ans =
+
+     1
+
+a(2)
+
+ans =
+
+     2
+
+a(7)
+
+ans =
+
+     7
+
+a(end)%last element in an array
+
+ans =
+
+     7
+
+c = -3:3
+
+c =
+
+    -3    -2    -1     0     1     2     3
+
+a(1:3)
+
+ans =
+
+     1     2     3
+
+c(1:3)
+
+ans =
+
+    -3    -2    -1
+
+%finding positive
+c_pos = find(c>0);
+c(c_pos) = c;
+{Unable to perform assignment because the left and right sides have a
+different number of elements.
+} 
+%Make c is not positive
+c(c_pos) = [];
+%FOR loops
+for i=1:5
+disp(i)
+end
+     1
+
+     2
+
+     3
+
+     4
+
+     5
+
+for i=1:5
+disp(i)
+end
+     1
+
+     2
+
+     3
+
+     4
+
+     5
+
+for i=1:10
+x = 2*i+10;
+end
+for i =1:10
+x(i) = 2*i+10;
+end
+diary off
